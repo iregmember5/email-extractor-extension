@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Powerly Email Extractor",
+  "version": "1.0.2",
+  "description": "Extract Gmail data to Google Sheets. Manage tasks, scheduled runs, and exports from your side panel.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://mypowerly.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Open Email Extractor",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src https://mypowerly.com; base-uri 'none'"
+  },
+  "externally_connectable": {
+    "matches": [
+      "https://mypowerly.com/*",
+      "https://*.mypowerly.com/*",
+      "http://localhost/*",
+      "https://localhost/*",
+      "http://127.0.0.1/*",
+      "https://127.0.0.1/*"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+node_modules/
+dist/
+*.zip
+playwright-report/
+test-results/
+
+.test-auth-site/
+
+# Local settings and editor/browser state
+!**/.env.example
+.marscode/
+tmp/
+
+# Website companion output
+dist-companion/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
+config.bat

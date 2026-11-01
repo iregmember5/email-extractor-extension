@@ -1,0 +1,46 @@
+{
+  "name": "powerly-email-extractor",
+  "private": true,
+  "version": "1.0.2",
+  "type": "module",
+  "scripts": {
+    "dev": "node init && vite --host 127.0.0.1",
+    "build": "node init && tsc --noEmit && vite build && node scripts/verify-build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "npm run build && npm test && node scripts/build-auth-test-site.mjs && npm run test:e2e",
+    "package": "npm run build && python3 scripts/package.py",
+    "format": "prettier --write src tests website-companion scripts/*.mjs *.ts *.json index.html README.md",
+    "format:check": "prettier --check src tests website-companion scripts/*.mjs *.ts *.json index.html README.md",
+    "test:google": "npm run build && node scripts/build-auth-test-site.mjs && playwright test tests/browser/google-sign-in.spec.ts",
+    "dev:companion": "node init && vite --config vite.companion.config.ts",
+    "build:companion": "node init && tsc --noEmit && vite build --config vite.companion.config.ts"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "lucide-react": "^1.66.0",
+    "node-fetch": "^3.3.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/chrome": "^0.3.7",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "node": "^24.22.2",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
